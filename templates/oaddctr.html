@@ -1,0 +1,124 @@
+{% extends  "dashboard.html" %}
+
+{% load static %}
+
+{% block card %}
+
+{% endblock %}
+
+{% block form %}
+
+	<div class="Simran">
+    
+            <form method="post">
+                {% csrf_token %}
+                <div class="user-details">
+    
+        <div class="input-box">
+        <span class="details">Name <strong style="color:red;">*</strong></span>
+        <input type="text" placeholder="Enter your First name" name='nm1' required>
+        <br>
+        <input type="text" placeholder="Enter your Last name" name='nm2' required>
+        </div>
+    
+        <div class="input-box">
+        <span class="details">User Name<strong style="color:red;">*</strong></span>
+        <input type="text" placeholder="Enter your username" name="username" required>
+        </div>
+    
+        
+        <div class="input-box">
+        <span class="details">Email<strong style="color:red;">*</strong></span>
+        <input type="text" placeholder="Enter your email" name="email" required>
+        </div>
+    
+    
+        <div class="input-box">
+        <span class="details">Phone Number<strong style="color:red;">*</strong></span>
+        <input type="text" placeholder="Enter your phone number" name="mobileno" required>
+        </div>
+
+        <div class="input-box">
+            <span class="details">DOB<strong style="color:red;">*</strong></span>
+            <input type="date" placeholder="Enter your Date of Birth" name="dateob" required>
+        </div>
+
+        <div class="input-box">
+            <span class="details">Aadhar no<strong style="color:red;">*</strong></span>
+            <input type="number" placeholder="Enter your Aadhar no" name="adhar" required>
+        </div>
+    
+    
+        <div class="input-box">
+        <span class="details">Password<strong style="color:red;">*</strong></span>
+        <input type="password" placeholder="Enter your Password" name="pwd" required>
+        </div>
+    
+        
+    
+        <div class="input-box">
+        <span class="details">Confirm Password<strong style="color:red;">*</strong></span>
+        <input type="text" placeholder="Conform your Password" required>
+        </div>
+    
+    
+        <div class="gender-details">
+            <input type="radio" name="gen" id="dot-1" value="M">
+            <input type="radio" name="gen" id="dot-2" value="F">
+            <input type="radio" name="gen" id="dot-3" value="X">
+    
+    
+            <span class="gender-title">Gender<strong style="color:red;">*</strong></span>
+            <div class="category">
+                <label for="dot-1">
+                    <span class="dot one"></span>
+                    <span class="gender">Male</span>
+                </label>
+    
+                <label for="dot-2">
+                    <span class="dot two"></span>
+                    <span class="gender">Female</span>
+                </label>
+    
+    
+                <label for="dot-3">
+                    <span class="dot three"></span>
+                    <span class="gender">Prefer not to say</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="input-box">
+            <span class="details">Site<strong style="color:red;">*</strong></span>
+            <select name="site">
+                <option value="none">Select</option>
+
+                		{% if ss %}
+
+                  		{% for i in ss %}
+          				<option value="{{ i }}">{{ i }}</option>
+          				{% endfor %}
+
+          				{% else %}
+          					<option value="null">No Sites free to assign Caretaker</option>
+          				{% endif %}
+
+            </select>
+        </div>
+
+        <div class="input-box">
+            <span class="details">Address<strong style="color:red;">*</strong></span>
+            <input type="textarea" placeholder="Enter your Address" name="add" required>
+        </div>
+    
+        <div class="button">
+            <input type="submit" value="Register">
+        </div>
+          </form>
+        </div>
+
+  
+  
+
+
+{% endblock %}

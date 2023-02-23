@@ -1,0 +1,310 @@
+{% extends "caretaker.html" %}
+
+{% load static %}
+
+
+
+
+
+
+{% block card %}
+		    <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">{{ card1 }}</div>
+                        <div class="cardName">Average Volume 1</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="beaker-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">{{ card2 }}</div>
+                        <div class="cardName">Average Volume 2</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="beaker-outline"></ion-icon>
+                        <!-- <ion-icon name="cart-outline"></ion-icon> -->
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">{{ card3 }}</div>
+                        <div class="cardName">Average Flow Rate 1</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="speedometer-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">{{ card4 }}</div>
+                        <div class="cardName">Average Flow Rate 2</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="speedometer-outline"></ion-icon>
+                    </div>
+                </div>
+            </div>
+
+            
+{% endblock %}
+
+
+
+{% block report %}
+
+<style type="text/css">
+	
+.sc-gauge  { width:200px; height:100px; margin:20px auto; }
+.sc-background { position:relative; height:100px; margin-bottom:10px; background-color:#fff; border-radius:150px 150px 0 0; overflow:hidden; text-align:center; }
+.sc-mask { position:absolute; top:20px; right:20px; left:20px; height:80px; background-color:#555888; border-radius:150px 150px 0 0 }
+.sc-percentage { position:absolute; top:100px; left:-200%; width:400%; height:400%; margin-left:100px; background-color:#00aeef; }
+.sc-percentage { transform:rotate(158deg); transform-origin:top center; }
+.sc-min { float:left; }
+.sc-max { float:right; }
+.sc-value { position:absolute; top:50%; left:0; width:100%;  font-size:48px; font-weight:700 }
+</style>
+
+
+    <div class="cardBox1">
+        <div class="card98">
+        			<canvas id="myChart1"></canvas>
+        </div>
+
+        <div class="card98">
+        			<canvas id="myChart2"></canvas>
+        </div>
+
+        <div class="card98">
+        			<canvas id="myChart5"></canvas>
+        </div>
+        <div class="card98">
+        			<div class="card99">
+        				<ul>
+        					<form method="POST">
+        						{% csrf_token %}
+        						<input type="checkbox" name="filter" value="0">
+  								<label >Home</label><br>
+  								<input type="checkbox" name="filter" value="1">
+  								<label >Daily</label><br>
+  								<input type="checkbox" name="filter" value="2">
+  								<label >Monthly</label><br>
+  								<input type="checkbox" name="filter" value="3">
+  								<label >Yearly</label><br><br>
+  								<input type="submit" value="Submit">
+							</form>
+        				</ul>
+        			</div>
+        </div>
+
+
+
+
+    </div>
+        
+      <div class="cardBox2">
+        	  <div class="card98">
+        			<canvas id="myChart3"></canvas>
+             </div>
+
+
+             <div class="card98">
+             		<canvas id="myChart4"></canvas>
+            </div>
+
+        	<div class="card98">
+        			<div class="sc-gauge">
+    						<div class="sc-background">
+      							<div class="sc-percentage"></div>
+      								<div class="sc-mask"></div>
+      									<span class="sc-value">{{ le1 }}</span>
+    						</div>
+    									<span class="sc-min">0</span>
+    									<span class="sc-max">{{ cap1 }}</span>
+    									<p align="center">1st Tank Level</p>
+					</div>
+        </div>
+        <div class="card98">
+        			<div class="sc-gauge">
+    						<div class="sc-background">
+      							<div class="sc-percentage"></div>
+      								<div class="sc-mask"></div>
+      									<span class="sc-value">{{ le2 }}</span>
+    						</div>
+    						<span class="sc-min">0</span>
+    						<span class="sc-max">{{ cap2 }}</span>
+    						<p align="center">2nd Tank Level</p>
+					</div>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+
+
+{% block scr %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+
+
+<script type="text/javascript">
+		function getRandomColor() {
+            var letters = '0123456789ABCDEF'.split('');
+            var color = '#';
+            for (var i = 0; i < 6; i++ ) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+                }
+		
+		$(document).ready(function(){
+  					const ctx = document.getElementById('myChart1').getContext('2d');
+					const myChart = new Chart(ctx, {
+					    type: 'line',
+					    data: {
+					        labels: [{% for i1 in x %}'{{ i1 }}',{% endfor%}],
+					        datasets: [{
+					            label: 'VOL 1',
+					            data:[{% for i in j %} {{ i }},{% endfor%}],
+					            backgroundColor: [  getRandomColor()	
+					                
+					            ],
+					            borderColor:[ getRandomColor()],            
+					      
+					            borderWidth: 3
+					        }]
+					    },
+					    options: {
+					        scales: {
+					            y: {
+					                beginAtZero: true
+					            }
+					        }
+					    }
+
+					});
+
+					const ctx2 = document.getElementById('myChart2').getContext('2d');
+					const myChart2 = new Chart(ctx2, {
+					    type: 'line',
+					    data: {
+					        labels: [{% for i1 in x %}'{{ i1 }}',{% endfor%}],
+					        datasets: [{
+					            label: 'VOL 2',
+					            data:[{% for i in g %} {{ i }},{% endfor%}],
+					            backgroundColor: [ getRandomColor()	
+					                
+					            ],
+					            borderColor: [ getRandomColor()			                
+					            ],
+					            borderWidth: 3
+					        }]
+					    },
+					    options: {
+					        scales: {
+					            y: {
+					                beginAtZero: true
+					            }
+					        }
+					    }
+					});
+
+					const ctx3 = document.getElementById('myChart3').getContext('2d');
+					const myChart3 = new Chart(ctx3, {
+					    type: 'line',
+					    data: {
+					        labels: [{% for i1 in x %}'{{ i1 }}',{% endfor%}],
+					        datasets: [{
+					            label: 'FR1',
+					            data:[{% for i in h %} {{ i }},{% endfor%}],
+					            backgroundColor: [ getRandomColor()	
+					                
+					            ],
+					            borderColor: [ getRandomColor()			                
+					            ],
+					            borderWidth: 3
+					        }]
+					    },
+					    options: {
+					        scales: {
+					            y: {
+					                beginAtZero: true
+					            }
+					        }
+					    }
+					});
+
+
+
+					const ctx4 = document.getElementById('myChart4').getContext('2d');
+					const myChart4 = new Chart(ctx4, {
+					    type: 'line',
+					    data: {
+					        labels: [{% for i1 in x %}'{{ i1 }}',{% endfor%}],
+					        datasets: [{
+					            label: 'FR2',
+					            data:[{% for i in k %} {{ i }},{% endfor%}],
+					            backgroundColor: [ getRandomColor()	
+					                
+					            ],
+					            borderColor: [ getRandomColor()			                
+					            ],
+					            borderWidth: 3
+					        }]
+					    },
+					    options: {
+					        scales: {
+					            y: {
+					                beginAtZero: true
+					            }
+					        }
+					    }
+					});
+
+
+					const ctx5 = document.getElementById('myChart5').getContext('2d');
+					const myChart5 = new Chart(ctx5, {
+					    type: 'line',
+					    data: {
+					        labels: [{% for i1 in x %}'{{ i1 }}',{% endfor%}],
+					        datasets: [{
+					            label: 'TDS',
+					            data:[{% for i in t %} {{ i }},{% endfor%}],
+					            backgroundColor: [ getRandomColor()	
+					                
+					            ],
+					            borderColor: [ getRandomColor()			                
+					            ],
+					            borderWidth: 3
+					        }]
+					    },
+					    options: {
+					        scales: {
+					            y: {
+					                beginAtZero: true
+					            }
+					        }
+					    }
+					});
+
+
+
+
+
+			});
+
+</script>
+
+{% endblock%}

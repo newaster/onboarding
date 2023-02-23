@@ -1,0 +1,152 @@
+{% extends "basedb.html" %}
+
+{% block title %}
+        <title>{{ deg }}Dashboard</title>
+{% endblock %}
+
+{% block navigation %}
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="water-outline"></ion-icon>
+                        </span>
+                        <span class="title">{{ deg }} Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/owner/">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">HOME</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'owner:sitesview' %}">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">SITE ANALYSIS</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'owner:plantview' %}">
+                        <span class="icon">
+                            <ion-icon name="person-add-outline"></ion-icon>
+                        </span>
+                        <span class="title">Plant Analysis</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'owner:addctr' %}">
+                        <span class="icon">
+                            <ion-icon name="person-add-outline"></ion-icon>
+                        </span>
+                        <span class="title">ADD CARE-TAKER</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">RESET CARE-TAKER DATA</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'owner:createsite' %}">
+                        <span class="icon">
+                            <ion-icon name="stats-chart-outline"></ion-icon>
+                        </span>
+                        <span class="title">Create Site</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'owner:editsite' %}">
+                        <span class="icon">
+                            <ion-icon name="stats-chart-outline"></ion-icon>
+                        </span>
+                        <span class="title">Site Setting</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'owner:report' %}">
+                        <span class="icon">
+                            <ion-icon name="stats-chart-outline"></ion-icon>
+                        </span>
+                        <span class="title">REPORT</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'owner:logout' %}">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">LOGOUT</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+{% endblock %}
+
+{% block navbar %}
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                    
+                </div>
+                <!-- <h4>DASHBOARD</h4> -->
+
+                <div class="search">
+                    <label>
+                        <h2>Welcome {{ request.user.username }}</h2>
+                    </label>
+                    
+            
+        
+                </div>
+
+                <span class="icon">
+                	<a href="{% url 'owner:logout' %}">
+                		<ion-icon name="log-out-outline"></ion-icon>
+                    </a>
+						<ion-icon name="person-circle-outline"></ion-icon>
+                </span>
+
+            </div>
+
+            <hr>
+
+        
+
+
+{% endblock %}
+
+
+
+
+
+{% block report %}
+{% endblock %}
+
+{% block status %}
+{% endblock %}
+

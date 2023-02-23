@@ -1,0 +1,50 @@
+{% extends "dashboard.html" %}
+
+{% load static %}
+
+{% block card %}
+{% endblock %}
+
+{% block report %}
+
+
+              <div class="details">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Active Sites</h2>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Plant Name</td>
+                                <td>Owner Name</td>
+                                <td>Plant ID</td>
+                                <td>Tank Capacity 1</td>
+                                <td>Tank Capacity 2</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                          {% for i in site %}
+                            
+                            <tr>
+                              
+                                <td>{{ i.name }}</td>
+                                <td>{{ i.oid.username }}</p></td>
+                                <td>{{ i.ids }}</p></td>
+                                <td>{{ i.cap1 }}</p></td>
+                                <td>{{ i.cap2 }}</p></td>
+                                <td><a href="{% url 'suadmin:analyse' id=i.ids %}">Analyse</a></td>
+                              
+                            </tr>
+                            
+                          {% endfor %}
+                        </tbody>
+
+                    </table>
+                </div>
+
+{% endblock %}
+

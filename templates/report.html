@@ -1,0 +1,36 @@
+{% extends  "owner.html" %}
+
+{% load static %}
+
+{% block card %}
+    <h1 align="center">Report</h1>
+
+    <div style="width:70%; margin-left:200px;">
+
+      <table class="table">
+        <tr>
+          <td>Plant Name</td>
+          <td>Owner Name</td>
+          <td>Plant ID</td>
+          <td>Tank Capacity 1</td>
+          <td>Tank Capacity 2</td>
+          <td></td>
+        </tr>
+
+    			{% for i in site %}
+          <tr>
+          <td>{{ i.name }}</td>
+          <td>{{ i.oid.username }}</p></td>
+    			<td>{{ i.ids }}</p></td>
+    			<td>{{ i.cap1 }}</p></td>
+    			<td>{{ i.cap2 }}</p></td>
+          <td><a href="{% url 'owner:analyse' id=i.ids %}" class="btn btn-primary">Analyse</a></td>
+
+        </tr>
+
+				{% endfor %}
+
+      </table>
+    </div>
+
+{% endblock %}

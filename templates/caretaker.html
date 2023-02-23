@@ -1,0 +1,103 @@
+
+{% extends "basedb.html" %}
+
+{% load static %}
+
+{% block title %}
+        <title>Caretaker Dashboard</title>
+{% endblock %}
+
+{% block navigation %}
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="water-outline"></ion-icon>
+                        </span>
+                        <span class="title">Caretaker Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/caretaker/">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">HOME</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="stats-chart-outline"></ion-icon>
+                        </span>
+                        <span class="title">REPORT</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'caretaker:logout' %}">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">LOGOUT</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+{% endblock %}
+
+{% block navbar %}
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                    
+                </div>
+                <!-- <h4>DASHBOARD</h4> -->
+
+                <div class="search">
+                    <label>
+                        <h2>Welcome {{ request.user }}</h2>
+                    </label>
+                </div>
+
+                 <div>
+                    <ion-icon name="log-out-outline"></ion-icon>
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                </div>
+            </div>
+
+            <hr>
+
+{% endblock %}
+
+{% block card %}
+{% endblock %}
+
+{% block report %}
+
+<link rel="stylesheet" href="{% static 'css/dropstyle.css' %}">
+      
+      <div class="cardBox">
+        
+        <img class="card-img-top" src="{% static 'image/caretaker.png' %}" alt="Card image cap">
+        <a href="{% url 'caretaker:analyse' id=9122037229 %}" class="btn btn-primary">Check Your Plant Analysis</a>
+        
+      </div>
+
+{% endblock %}
+
+
+{% block status %}
+{% endblock %}
+

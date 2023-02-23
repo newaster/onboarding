@@ -1,0 +1,104 @@
+{% extends "dashboard.html" %}
+
+{% load static %}
+
+{% block card %}
+
+{% endblock %}
+
+{% block form %}
+
+<div class="Simran">
+				
+				<form method="post">
+					{% csrf_token %}
+
+				<div class="user-details">
+
+				  <div class="input-box">
+    			        <span class="details">Name <strong style="color:red;">*</strong></span>
+    			      
+    			      	<input type="text"   name="nm1" placeholder="Firstname" class="form-control">
+    			      	<br>
+    			      	<input type="text"  name="nm2" placeholder="Lastname"class="form-control" >
+    		       </div>
+
+
+  				<div class="input-box">
+    			      <span class="details">Email</span>
+    			      <input type="text" class="form-control"  name="email">
+  				</div>
+
+  				<div class="input-box">
+    			      <span class="details">Username</span>
+    			      <input type="text" class="form-control"  name="username">
+  				</div>
+
+
+  				<div class="input-box">
+    			      <span class="details">Mobile no</span>
+    			      <input type="text" class="form-control"  name="mobileno">
+  				</div>
+
+
+  				<div class="input-box">
+  				      <span class="details">Date of Birth</span>
+    			      <input type="Date" class="form-control"  name="dateob">
+  				</div>
+
+
+  				<div class="input-box">
+    			      <span class="details">Aadhar no</span>
+    			      <input type="text" class="form-control"  name="adhar">
+  				</div>
+
+
+  				<div class="input-box">
+    			      <span class="details">Password</span>
+    			      <input type="password" class="form-control" id="exampleInputPassword1" name="pwd">
+  				</div>
+
+
+  				<div class="gender-details">
+            		<input type="radio" name="gen" id="dot-1" value="M">
+            		<input type="radio" name="gen" id="dot-2" value="F">
+            		<input type="radio" name="gen" id="dot-3" value="X">
+    
+    
+            		<span class="gender-title">Gender<strong style="color:red;">*</strong></span>
+            		<div class="category">
+                		<label for="dot-1">
+                    		<span class="dot one"></span>
+                    		<span class="gender">Male</span>
+                		</label>
+    
+                		<label for="dot-2">
+                    		<span class="dot two"></span>
+                    		<span class="gender">Female</span>
+                		</label>
+    
+    
+                	<label for="dot-3">
+                    	<span class="dot three"></span>
+                    	<span class="gender">Prefer not to say</span>
+                	</label>
+            		</div>
+        		</div>
+
+
+       			<div class="input-box">
+    			<span class="details">Address</span>
+    			<input type="textarea" class="form-control"  name="add">
+  				</div>
+
+
+  				<div class="input-box">
+					<input type="submit" name="Submit" class="btn btn-warning">
+				</div>
+
+				</div>
+			</form>	
+		
+	</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends  "owner.html" %}
+
+{% load static %}
+
+{% block card %}
+
+<div style="margin-top: 50px; margin-bottom: 50px; margin-left:350px; margin-right:50px; width:70%">
+				
+			<form method="post">
+					{% csrf_token %}
+				  <div class="form-group">
+    			<label for="exampleInputEmail1">Site</label>
+    			<select class="form-control" name="site">
+                  <option value="none">Select</option>
+                  		{% for i in site %}
+          				
+          				 	<option value="{{ i.ids }}">{{ i.name }}-{{ i.ids }}</option>
+          				 
+          				{% endfor %}
+                  		
+          		</select>
+  				</div>
+  				
+  				
+  					<div>
+  						
+  							<input type="submit" name="Submit" class="btn btn-danger">
+  					    
+  					</div>
+  			</form>
+</div>
+
+{% endblock %}

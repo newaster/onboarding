@@ -1,0 +1,30 @@
+{% extends "owner.html" %}
+{% load static %}
+
+{% block card %}
+
+	<div class="cardBox">
+			{% for i in site %}
+                <a href="{% url 'owner:analyse' id=i.ids %}">
+                <div class="card">
+                    <div>
+                        <div class="cardName"><strong>{{ i.ids }}</strong></div>
+                        <div class="cardName">{{ i.name }}</div>
+                        <div class="cardName">{{ i.oid.username }}</div>
+                        <div class="cardName">{{ i.cap1 }} liter</div>
+                        <div class="cardName">{{ i.cap2 }} liter</div>
+
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="bar-chart-outline"></ion-icon>
+                    </div>
+                </div>
+                </a>
+
+            {% endfor %}
+
+
+    </div>
+{% endblock %}
+

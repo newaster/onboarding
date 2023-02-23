@@ -1,0 +1,134 @@
+{% extends "basedb.html" %}
+
+{% block title %}
+        <title>{{ deg }} Dashboard</title>
+{% endblock %}
+
+{% block navigation %}
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li data-step="1" data-title="Learn how to use this webiste" data-intro="Your Dashboard!">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="water-outline"></ion-icon>
+                        </span>
+                        <span class="title">{{ deg }} Dashboard</span>
+                    </a>
+                </li>
+
+
+                <li data-step="2" data-title="Learn how to use this webiste" data-intro="Click here to go to home ">
+                    <a href="/suadmin/">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">HOME</span>
+                    </a>
+                </li>
+
+                <li data-step="3" data-title="Learn how to use this webiste" data-intro="Click here for Site Analysis ">
+                    <a href="{% url 'suadmin:sitesview' %}">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">SITE ANALYSIS</span>
+                    </a>
+                </li>
+
+                <li data-step="4" data-title="Learn how to use this webiste" data-intro="Click Here for Adding Owner to Site ">
+                    <a href="{% url 'suadmin:addowner' %}">
+                        <span class="icon">
+                            <ion-icon name="person-add-outline"></ion-icon>
+                        </span>
+                        <span class="title">Add Owner</span>
+                    </a>
+                </li>
+
+                <li data-step="5" data-title="Learn how to use this webiste" data-intro="Click here to Reset Owner data ">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">RESET Owner DATA</span>
+                    </a>
+                </li>
+
+                <li data-step="6" data-title="Learn how to use this webiste" data-intro="Click here to Add Caretaker to Website">
+                    <a href="{% url 'suadmin:oaddctr' %}">
+                        <span class="icon">
+                            <ion-icon name="stats-chart-outline"></ion-icon>
+                        </span>
+                        <span class="title">Add Caretaker</span>
+                    </a>
+                </li>
+
+                <li data-step="7" data-title="Learn how to use this webiste" data-intro="Click Here to reset caretaker data">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="stats-chart-outline"></ion-icon>
+                        </span>
+                        <span class="title">Reset Caretaker Data</span>
+                    </a>
+                </li>
+
+                <li data-step="8" data-title="Learn how to use this webiste" data-intro="Click here to get your reports">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="stats-chart-outline"></ion-icon>
+                        </span>
+                        <span class="title">REPORT</span>
+                    </a>
+                </li>
+
+                <li data-step="9" data-title="Learn how to use this webiste" data-intro="Click here to Logout!">
+                    <a href="{% url 'suadmin:logout' %}">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">LOGOUT</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+{% endblock %}
+
+{% block navbar %}
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                    
+                </div>
+                <!-- <h4>DASHBOARD</h4> -->
+
+                <div class="search">
+                    <label>
+                        <strong>Welcome {{ request.user.username }}</strong>
+                    </label>
+                    
+                </div>
+
+                 <div>
+                    <ion-icon name="log-out-outline"></ion-icon>
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                </div>
+            </div>
+
+    <hr>
+
+{% endblock %}
+
+
+
+{% block report %}
+{% endblock %}
+
+{% block status %}
+{% endblock %}
+

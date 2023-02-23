@@ -1,0 +1,390 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'image/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/card.css' %}">
+    <link rel="stylesheet" href="{% static 'css/reg.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+     <!--Introjs-->
+    <script src="https://cdn.jsdelivr.net/npm/intro.js@6.0.0/intro.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js@6.0.0/introjs.min.css">
+
+
+
+    {% block title %}
+        <title>{{ deg }}Dashboard</title>
+    {% endblock %}
+
+    
+
+    <link rel="stylesheet" href="{% static 'css/dbstyle.css' %}">
+
+
+
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+    
+</head>
+
+<body>
+
+
+
+{% block navigation %}
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="water-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">SITE ANALYSIS</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="person-add-outline"></ion-icon>
+                        </span>
+                        <span class="title">ADD OWNER</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">RESET OWNER DATA</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="person-add-outline"></ion-icon>
+                        </span>
+                        <span class="title">ADD CARE-TAKER</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">RESET CARE-TAKER DATA</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="stats-chart-outline"></ion-icon>
+                        </span>
+                        <span class="title">REPORT</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="log-out-outline"></ion-icon>
+                        </span>
+                        <span class="title">LOGOUT</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+{% endblock %}
+
+{% block navbar %}
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle" icon-inner>
+                    <ion-icon name="menu-outline"></ion-icon>
+                    
+                </div>
+                <!-- <h4>DASHBOARD</h4> -->
+
+                <div class="search">
+                    <label>
+                        <!-- Name and Designation -->
+                    </label>
+                </div>
+
+                <div class="iconBx">
+                        <ion-icon name="person-outline"></ion-icon>
+                </div>
+            </div>
+
+{% endblock %}
+
+{% block form %}
+{% endblock %}
+
+{% block card %}
+
+            <!-- ======================= Cards ================== -->
+            <div class="cardBox">
+                <div class="card" data-step="10" data-title="Learn how to use this webiste" data-intro="Your Total Active Sites">
+                    <div>
+                        <div class="numbers">86</div>
+                        <div class="cardName">Total Active Sites</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <div class="card" data-step="11" data-title="Learn how to use this webiste" data-intro="Total Amount of Water Filtered!">
+                    <div>
+                        <div class="numbers">75</div>
+                        <div class="cardName">Total Water Filtered</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="eye-outline"></ion-icon>
+                        <!-- <ion-icon name="cart-outline"></ion-icon> -->
+                    </div>
+                </div>
+
+                <div class="card" data-step="12" data-title="Learn how to use this webiste" data-intro="Your Total Active Sites">
+                    <div>
+                        <div class="numbers">28</div>
+                        <div class="cardName">Total Sites</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="chatbubbles-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <div class="card" data-step="13" data-title="Learn how to use this webiste" data-intro="Total Cost of Deployment">
+                    <div>
+                        <div class="numbers">55</div>
+                        <div class="cardName">Total Cost</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="cash-outline"></ion-icon>
+                    </div>
+                </div>
+            </div>
+
+            <p align="center"><a  href="javascript:introJs().start()">Get a demo!!</a></p>
+
+{% endblock %}
+
+{% block report %}
+
+            <!-- ================Report List ================= -->
+            <div class="details">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>ACTIVE DEALS</h2>
+                        <a href="#" class="btn">View All</a>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Name</td>
+                                <td>TYPE</td>
+                                <td>AMOUNT</td>
+                                <td>PROGRESS</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>DEEPBHAIYA-1</td>
+                                <td>$1,350,000</td>
+                                <td>SBA 7A</td>
+                                <td><span class="status delivered">Approval</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>DEEPBHAIYA-1</td>
+                                <td>$1,350,000</td>
+                                <td>SBA 7A</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>DEEPBHAIYA-1</td>
+                                <td>$1,350,000</td>
+                                <td>SBA 7A</td>
+                                <td><span class="status return">Approval</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>DEEPBHAIYA-1</td>
+                                <td>$1,350,000</td>
+                                <td>SBA 7A</td>
+                                <td><span class="status inProgress">In Progress</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>DEEPBHAIYA-1</td>
+                                <td>$1200</td>
+                                <td>SBA 7A</td>
+                                <td><span class="status delivered">Approval</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>DEEPBHAIYA-1</td>
+                                <td>$1,350,000</td>
+                                <td>SBA 7A</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>DEEPBHAIYA-1</td>
+                                <td>$1,350,000</td>
+                                <td>SBA 7A</td>
+                                <td><span class="status return">Return</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>DEEPBHAIYA-1</td>
+                                <td>$1,350,000</td>
+                                <td>SBA 7A</td>
+                                <td><span class="status inProgress">In Progress</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+{% endblock %}
+
+{% block status %}
+
+                <!-- ================= STATUS ================ -->
+                <div class="recentCustomers">
+                    <div class="cardHeader">
+                        <h2>Status</h2>
+                    </div>
+
+                    <table>
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>David <br> <span>Italy</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>Amit <br> <span>India</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>David <br> <span>Italy</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>Amit <br> <span>India</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>David <br> <span>Italy</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>Amit <br> <span>India</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>David <br> <span>Italy</span></h4>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>Amit <br> <span>India</span></h4>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+    <!-- =========== Scripts =========  -->
+    <script src="{% static 'js/dbscript.js' %}"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+{% block scr %}
+
+{% endblock %}
+
+</body>
+
+</html>

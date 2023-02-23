@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="{% static 'image/favicon.ico' %}">
+    <title>Analytics Login</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/loginstyle.css' %}">
+
+    <!--Introjs-->
+    <script src="https://cdn.jsdelivr.net/npm/intro.js@6.0.0/intro.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js@6.0.0/introjs.min.css">
+
+
+</head>
+<body>
+    
+    <!-- <img class="wave" src="img/wave.jpg"> -->
+     <div class="container">
+        
+        
+        
+        <div class="login-content">
+            
+            <form method="POST">
+                {% csrf_token %}
+                <!-- <img src="img/user.svg"> -->
+                <h2 class="title">LOGIN</h2>
+
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="ri-user-line"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Username</h5>
+                        <input type="text" class="form-control" name="username" data-step="2" data-title="Learn how to use this webiste" data-intro="Enter Your Username here!" data-position="right">
+                    </div>
+                </div>
+
+
+                  
+                <div class="input-div pass">
+                    <div class="i">
+                        
+                        <i class="ri-lock-2-line"></i>
+                        <!-- <h1>ugbdliugbuiwgw</h1> -->
+                    </div>
+                    <div class="div">
+                        <h5>Password</h5>
+                        <input type="password" class="form-control" name="password" data-step="3" data-title="Learn how to use this webiste" data-intro="Enter Your Password here!" data-position="right">
+                    </div>
+                </div>
+
+                <a href="#" data-step="4" data-intro="Click Here If you Forget Your Username or Password" data-title="Learn how to use this webiste"  data-position="right">Forget Password ?</a>
+                <input type="submit" class="btn" value="login" data-step="5"  data-title="Learn how to use this webiste" data-intro="Click on this button to Login">
+
+            </form>
+        </div>
+
+        <div class="img">
+            <img src="{% static 'image/embark.png' %}" width="60%" data-step="1" data-intro="Welcome to Aster" data-title="Learn how to use this webiste">
+        </div>
+        
+        <div>
+            <a  href="javascript:introJs().start()">Get a demo!!</a>
+        </div>
+        
+        
+         </div>
+        
+     
+
+    <script src="{% static 'js/loginscript.js' %}"></script>
+</body>
+</html>

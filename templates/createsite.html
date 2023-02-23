@@ -1,0 +1,36 @@
+{% extends  "owner.html" %}
+
+{% load static %}
+
+{% block card %}
+
+<div style="margin-top: 50px; margin-bottom: 50px; margin-left:350px; margin-right:50px; width:70%">
+				
+			<form method="post">
+					{% csrf_token %}
+				  <div class="form-group">
+    			<label for="exampleInputEmail1">Site no:</label>
+    			<div >
+    			<input type="text"   name="sno" placeholder="Site Number" class="form-control">
+    			</div>
+  				</div>
+  				<div class="form-group">
+    			<label for="exampleInputEmail1">Site Name:</label>
+    			<input type="text" class="form-control"  name="sname">
+  				</div>
+  				<div class="form-group">
+    			<label for="exampleInputEmail1">Tank 1 Capacity:</label>
+    			<input type="number" class="form-control"  name="t1c">
+  				</div>
+  				<div class="form-group">
+    			<label for="exampleInputEmail1">Tank 2 Capacity:</label>
+    			<input type="number" class="form-control"  name="t2c">
+  				</div>
+  				<div>
+  					<input type="submit" name="Submit" class="btn btn-danger">
+  				</div>
+  			</form>
+</div>
+  		
+
+{% endblock %}
